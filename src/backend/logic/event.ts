@@ -58,13 +58,9 @@ export class EventLogic {
             .where(eq(events.itemId, itemId))
             .orderBy(desc(events.createdAt));
 
-        return rows.map((e) =>
-            new Date(e.createdAt).toLocaleString("en-IN", {
-                month: "short",
-                day: "numeric",
-                hour: "numeric",
-                minute: "2-digit",
-            }),
-        );
+        return rows.map((e) => ({
+            id: e.id,
+            createdAt: e.createdAt,
+        }));
     }
 }

@@ -20,7 +20,9 @@ export const LogTab = () => {
     const [query, setQuery] = useState("");
     const [selectedItem, setSelectedItem] = useState<FlatItem | null>(null);
 
-    const [history, setHistory] = useState<string[]>([]);
+    const [history, setHistory] = useState<{ id: string; createdAt: string }[]>(
+        [],
+    );
     const [historyLoading, setHistoryLoading] = useState(false);
 
     /** Flatten tree for Fuse search */
@@ -207,7 +209,17 @@ export const LogTab = () => {
                         ) : (
                             <div className="text-sm text-neutral-500 space-y-1">
                                 {history.map((h, i) => (
-                                    <div key={i}>{h}</div>
+                                    <div key={i}>
+                                        {new Date(h.createdAt).toLocaleString(
+                                            undefined,
+                                            {
+                                                month: "short",
+                                                day: "numeric",
+                                                hour: "numeric",
+                                                minute: "2-digit",
+                                            },
+                                        )}
+                                    </div>
                                 ))}
                             </div>
                         )}
