@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "sonner";
 import "./globals.css";
 import { OAuthProviderWrapper } from "@/components/oauth-provider/oauth-provider-wrapper";
+import { ItemsProvider } from "@/context/items-context";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -42,7 +43,9 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <OAuthProviderWrapper>{children}</OAuthProviderWrapper>
+                <OAuthProviderWrapper>
+                    <ItemsProvider>{children}</ItemsProvider>
+                </OAuthProviderWrapper>
                 <Toaster position="top-right" richColors />
                 <Analytics />
             </body>

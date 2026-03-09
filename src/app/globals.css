@@ -136,7 +136,33 @@ body {
     * {
         @apply border-border outline-ring/50;
     }
+
     body {
         @apply bg-background text-foreground;
+    }
+}
+
+/* Loader element styling */
+.loader {
+    width: 25px;
+    height: 25px;
+    /* Create the circular shape */
+    border-radius: 50%;
+    /* Define the overall border (light gray, thick) */
+    border: 2px solid #f3f3f3;
+    /* Define the moving part (black border on top) */
+    border-top: 2px solid #000000;
+    /* Apply the animation */
+    animation: spin 1s linear infinite;
+}
+
+/* Define the spinning animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
