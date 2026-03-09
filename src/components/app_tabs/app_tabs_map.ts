@@ -3,14 +3,14 @@ import {
     FiPlusCircle,
     FiClock,
     FiBarChart2,
-    FiSettings,
+    FiShoppingCart,
     FiUser,
 } from "react-icons/fi";
 
 import { LogTab } from "./log/log";
 import { TimelineTab } from "./timeline/timeline";
 import { InsightsTab } from "./insights/insights";
-import { SetupTab } from "./setup/setup";
+import { ItemsTab } from "./items/items";
 import { AccountTab } from "@/components/app_tabs/account/account";
 
 type AppTabConfig = {
@@ -35,10 +35,10 @@ export const AppTabMap: Record<string, AppTabConfig> = {
         icon: FiBarChart2,
         label: "Insights",
     },
-    setup: {
-        component: SetupTab,
-        icon: FiSettings,
-        label: "Setup",
+    items: {
+        component: ItemsTab,
+        icon: FiShoppingCart,
+        label: "Items",
     },
     account: {
         component: AccountTab,
