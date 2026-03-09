@@ -5,24 +5,26 @@ import { FaUser } from "react-icons/fa6";
 import { LogOut } from "lucide-react";
 import { CURRENT_VERSION } from "@/constants/version";
 
-export const MoreTab = () => {
+export const AccountTab = () => {
     const { data: session } = useSession();
 
     return (
         <div className="flex min-h-screen flex-col items-center justify-between p-6">
             {/* Profile */}
             <div className="flex flex-col items-center gap-4 mt-12">
-                <div className="h-24 w-24 rounded-full bg-neutral-200 overflow-hidden flex items-center justify-center">
-                    {session?.user?.image ? (
-                        <img
-                            src={session.user.image}
-                            alt={session.user.name ?? "User"}
-                            className="h-full w-full object-cover"
-                            referrerPolicy="no-referrer"
-                        />
-                    ) : (
-                        <FaUser size={44} className="text-neutral-500" />
-                    )}
+                <div className="h-24 w-24 p-1 rounded-full border border-neutral-200 bg-white shadow-sm flex items-center justify-center">
+                    <div className="h-full w-full rounded-full bg-neutral-200 overflow-hidden flex items-center justify-center">
+                        {session?.user?.image ? (
+                            <img
+                                src={session.user.image}
+                                alt={session.user.name ?? "User"}
+                                className="h-full w-full object-cover rounded-full"
+                                referrerPolicy="no-referrer"
+                            />
+                        ) : (
+                            <FaUser size={44} className="text-neutral-500" />
+                        )}
+                    </div>
                 </div>
 
                 <div className="text-center space-y-1">

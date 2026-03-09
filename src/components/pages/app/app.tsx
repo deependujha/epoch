@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { TrackerTabMap } from "@/components/tracker_tabs/tracker_map";
+import { AppTabMap } from "@/components/app_tabs/app_tabs_map";
 
-const tabs = Object.keys(TrackerTabMap);
+const tabs = Object.keys(AppTabMap);
 
-export const TrackerPage = () => {
+export const AppPage = () => {
     const [activeTab, setActiveTab] = useState(tabs[0]);
 
-    const ActiveComponent = TrackerTabMap[activeTab].component;
+    const ActiveComponent = AppTabMap[activeTab].component;
 
     return (
         <div className="flex flex-col h-screen bg-background text-foreground">
@@ -20,7 +20,7 @@ export const TrackerPage = () => {
             {/* Bottom Bar */}
             <nav className="h-14 border-t border-neutral-200 flex justify-around items-center mb-2">
                 {tabs.map((tab) => {
-                    const { icon: Icon, label } = TrackerTabMap[tab];
+                    const { icon: Icon, label } = AppTabMap[tab];
                     const isActive = activeTab === tab;
 
                     return (

@@ -1,8 +1,7 @@
 "use client";
 
 import { LoginPage } from "@/components/pages/login/login";
-import { TrackerPage } from "@/components/pages/tracker/tracker";
-import { Scanner } from "@/components/scanner/scanner";
+import { AppPage } from "@/components/pages/app/app";
 import { useSession } from "next-auth/react";
 
 export default function Home() {
@@ -28,5 +27,5 @@ export default function Home() {
     }
 
     // Logged in
-    return <TrackerPage />;
+    return <AppPage />;
 }
