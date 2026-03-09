@@ -67,7 +67,7 @@ export type Expense = {
     title: string;
     description?: string;
     amount: number;
-    createdAt: number | null;
+    createdAt: number;
 };
 
 export type PieDatum = {

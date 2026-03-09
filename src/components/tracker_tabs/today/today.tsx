@@ -19,7 +19,6 @@ const truncate = (text: string, max = 5) =>
 /* ---------- Component ---------- */
 
 export const TodayTab = () => {
-    const [now, setNow] = useState<number | null>(null);
     const [expenses, setExpenses] = useState<Expense[]>([]);
     const [loading, setLoading] = useState(true);
     const [showForm, setShowForm] = useState(false);
@@ -33,8 +32,6 @@ export const TodayTab = () => {
     /* ---------- Load today's expenses ---------- */
 
     useEffect(() => {
-        setNow(Date.now());
-
         fetch("/api/expenses/today")
             .then((res) => res.json())
             .then((data) => {
@@ -84,7 +81,7 @@ export const TodayTab = () => {
                 title,
                 description: description || undefined,
                 amount: Number(amount),
-                createdAt: now,
+                createdAt: Date.now(),
             };
 
             setExpenses((prev) => [expense, ...prev]);
